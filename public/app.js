@@ -45,9 +45,20 @@ authTabs.forEach((tab) => {
 async function apiRequest(path, options = {}) {
   const headers = options.headers || {};
   headers['Content-Type'] = 'application/json';
-  if (token) headers.Authorization = `Bearer ${token}`;
+  if (token && !path.startsWith('/api/auth')) {
+    headers.Authorization = `Bearer ${token}`;
+  }
+
   const response = await fetch(path, { ...options, headers });
   const data = await response.json();
+
+  if (response.status === 401 && !path.startsWith('/api/auth')) {
+    token = null;
+    localStorage.removeItem('ttm_token');
+    showAuth();
+    throw new Error(data.error || 'Authentication required. Please log in again.');
+  }
+
   if (!response.ok) throw new Error(data.error || 'Request failed');
   return data;
 }

@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Battini Saipriya",
+      "email": "battinisaipriya@gmail.com",
+      "password_hash": "$2a$10$RhHNCKScFI9G20i.UPRNyOJmIpLJO0oN2uogrXRpBwVsolxZYdII.",
+      "created_at": "2026-05-09T13:23:42.779Z"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "Team Task Manager (Full-Stack)",
+      "description": "Build a web app where users can create projects, assign tasks, and track progress with role-based access (Admin/Member).",
+      "owner_id": 1,
+      "created_at": "2026-05-09T13:38:47.926Z"
+    }
+  ],
+  "project_members": [
+    {
+      "project_id": 1,
+      "user_id": 1,
+      "role": "admin"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "project_id": 1,
+      "title": "Team Task Manager (Full-Stack)",
+      "description": "Build a web app where users can create projects, assign tasks, and track progress with role-based access (Admin/Member).",
+      "assigned_to": 1,
+      "status": "todo",
+      "due_date": "2026-05-11",
+      "created_at": "2026-05-09T13:39:12.949Z",
+      "updated_at": "2026-05-09T13:39:25.759Z"
+    }
+  ]
+}
